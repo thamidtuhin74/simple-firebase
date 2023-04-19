@@ -1,6 +1,6 @@
 ### Live ink : https://soft-donut-2e2971.netlify.app/
 
-### Firebase Setup
+### Firebase Setup 
 _____________________
 
 1. go to 'https://console.firebase.google.com/' and create a new project
