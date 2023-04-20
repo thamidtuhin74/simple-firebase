@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     const facebookLoginHandler = () =>{
-        signInWithPopup(auth , gitProvider)
+        signInWithPopup(auth , fbProvider)
         .then(result => {
             const logInUser = result.user;
             console.log(logInUser);
