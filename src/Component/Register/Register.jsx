@@ -132,8 +132,8 @@ const Register = () => {
             <h3>This is register</h3>
             <form onSubmit={handleSubmit}>
                 
-                 <input type="text" name="name" id="name" placeholder='Your Name' required /><br />
-                <input onChange={handleEmailChange} type="email" name="email" id="email" placeholder='Your Email' required /><br />
+                 <input type="text" name="name" id="name" placeholder='Your Name' required /><br /><br />
+                <input onChange={handleEmailChange} type="email" name="email" id="email" placeholder='Your Email' required /><br /><br />
                 <input onBlur={handlePasswordBlur} type={seePassword?'text':'password'} name="password" id="password" placeholder='password' required/><br />
                 
                 <p className='text-warning'>{error}</p>
