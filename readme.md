@@ -1,4 +1,5 @@
-### Live ink : https://soft-donut-2e2971.netlify.app/
+### Live Link : https://soft-donut-2e2971.netlify.app/
+### Live Link : https://simple-firebase-639c3.web.app/
 
 ### Firebase Setup 
 _____________________
