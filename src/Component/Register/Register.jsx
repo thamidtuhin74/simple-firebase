@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 // import {getAuth, } from 'firebase/auth';
-import {signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, signOut, sendEmailVerification} from 'firebase/auth'
+import {signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, signOut, sendEmailVerification, updateProfile} from 'firebase/auth'
 
 import app from '../../firebase/firebase.init';
 import { Alert } from 'bootstrap';
+import { AuthContext } from '../../Provider/AuthProviders';
 
 
 
 const Register = () => {
     
+
+    //load contextApi
+
+    const {user, createUser} = useContext(AuthContext);
+
+
     const auth = getAuth(app);
 
 
@@ -84,7 +91,15 @@ const Register = () => {
 
         console.log(email + '  '+ password + name);
 
-        createUserWithEmailAndPassword(auth, email, password, name)
+        
+        
+        // // private register
+        // createUserWithEmailAndPassword(auth, email, password, name)
+
+
+        // Global Register
+
+        createUser(email, password)
         .then(result =>{
             const logInUser = result.user;
             console.log(logInUser);
@@ -129,17 +144,17 @@ const Register = () => {
 
     return (
         <div>
-            <h3>This is register</h3>
+            <h3 className='text-4xl font-bold my-10'>Register</h3>
             <form onSubmit={handleSubmit}>
                 
-                 <input type="text" name="name" id="name" placeholder='Your Name' required /><br /><br />
-                <input onChange={handleEmailChange} type="email" name="email" id="email" placeholder='Your Email' required /><br /><br />
-                <input onBlur={handlePasswordBlur} type={seePassword?'text':'password'} name="password" id="password" placeholder='password' required/><br />
+                 <input className="input w-full max-w-xs" type="text" name="name" id="name" placeholder='Your Name' required /><br /><br />
+                <input className="input w-full max-w-xs" onChange={handleEmailChange} type="email" name="email" id="email" placeholder='Your Email' required /><br /><br />
+                <input className="input w-full max-w-xs" onBlur={handlePasswordBlur} type={seePassword?'text':'password'} name="password" id="password" placeholder='password' required/><br />
                 
                 <p className='text-warning'>{error}</p>
                 <p className='text-success'>{success}</p>
 
-                <input type="submit" value="Register" />
+                <input className="btn btn-primary" type="submit" value="Register" />
             </form>
             <h4>User EMAIL : {newuser?.email}</h4>
             <h4>User Password : {password}</h4>
